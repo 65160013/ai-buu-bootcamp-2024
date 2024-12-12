@@ -27,11 +27,11 @@ from contextlib import asynccontextmanager
 app = FastAPI()
 
 # ข้อมูล token และ channel secret สำหรับ LINE
-ACCESS_TOKEN = os.getenv("LINE_ACCESS_TOKEN", "O0Vi8xE7Wh3A6BahSUC6O0VKR7RxR0p27jHBl1h39OdH9/d3cEtmrS4QT91BUEDmmrRqLrUiKLVxlJcggXWQ/MwNBJttPBjKEw8Oifg9O06on+Ab3UzbvQ7E8W56z5GeOIHvROzUsRVagavLPiTIbwdB04t89/1O/w1cDnyilFU=")
-CHANNEL_SECRET = os.getenv("LINE_CHANNEL_SECRET", "701c99f9fa1b4d0261e6f4dedcce76c8")
+ACCESS_TOKEN = os.getenv("LINE_ACCESS_TOKEN", "+OiZWbE5ZDDY8claJxoan3K3kZrkHr8UL1ZiwhwU4aehPvxxZlpTSmotFyFN4oMQ05xlDvm3odElx/xdt4wwscoP4J1WxVMTSrzKl+BnxIXOrVxx3b8TxkJUlXHLzriXeGXAVCdo0lkn4w7gcTqBhwdB04t89/1O/w1cDnyilFU=")
+CHANNEL_SECRET = os.getenv("LINE_CHANNEL_SECRET", "535ba27bc0bcd3edb3b968a34b4c2ed5")
 
 # ข้อมูล Gemini api key
-GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "AIzaSyBrn9N8g0RnZrYhW-vFe3Tb2ytibKcsU3E")
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "AIzaSyACVOQYY4SSzeXjq32FDCSEmqVWHrBE_Gw")
 
 # การเชื่อมต่อ และตั้งค่าข้อมูลเพื่อเรียกใช้งาน LINE Messaging API
 configuration = Configuration(access_token=ACCESS_TOKEN)
@@ -240,10 +240,11 @@ gemini = GeminiRAGSystem(
 async def lifespan(app: FastAPI):
     # ข้อมูลตัวอย่างที่ใช้สำหรับ Gemini
     sample_documents = [
-        "จิรภัทร ทำดี คือ ชายหนุ่มที่มีความสามารถในการเขียนโปรแกรมที่มาจากบริษัท ClickNext ที่เป็นบริษัทด้านการพัฒนาโปรแกรมที่มีชื่อเสียง",
-        "จิรภัทร ทำดี มีชื่อเล่นว่า ปาล์ม เกิดวันที่ 25 มกราคม 2555 ที่จังหวัดสระบุรี ศึกษาจบจากมหาวิทยาลัยบูรพา สาขาวิศวกรรมคอมพิวเตอร์",
+        "จักรพงษ์ คชเผือก คือ ชายหนุ่มที่เรียนอยู่ที่มหาวิทยาลัยบูรพา เป็นนักศึกษาชั้นปีที่ 3 สาขาเทคโนโลยีสารสนเทศเพื่ออุตสาหกรรมดิจิทัล",
+        "จักรพงษ์ คชเผือก มีชื่อเล่นว่า พาส เกิดวันที่ 30 สิงหาคม 2546 ที่จังหวัดกรุงเทพฯ ศึกษาอยู่ที่มหาวิทยาลัยบูรพา คณะวิทยาการสารสนเทศ ปี 3",
         "งาน BUU-Bootcamp-2024 จัดที่มหาวิทยาลัยบูรพา ในวันที่ 25 มกราคม ปีค.ศ.2024 โดยมีการจัดกิจกรรมต่าง ๆ ที่เกี่ยวข้องกับการพัฒนาซอฟต์แวร์ เวลา 9:00 น. - 16:00 น.",
-        "มหาวิทยาลัยบูรพา สาขาวิชาAI ปีการศึกษา 2565 มีนักศึกษาจำนวน 100 คน มีอาจารย์ที่ปรึกษา 10 คน"
+        "มหาวิทยาลัยบูรพา สาขาวิชา AI ปีการศึกษา 2565 มีนักศึกษาจำนวน 100 คน มีอาจารย์ที่ปรึกษา 10 คน",
+        ""
     ]
     
     # เพิ่มข้อมูลตัวอย่างลงใน Gemini
