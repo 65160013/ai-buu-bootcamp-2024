@@ -18,7 +18,7 @@ import google.generativeai as genai
 app = FastAPI()
 
 # ข้อมูล token และ channel secret สำหรับ LINE
-ACCESS_TOKEN = "2006663321"
+ACCESS_TOKEN = "+OiZWbE5ZDDY8claJxoan3K3kZrkHr8UL1ZiwhwU4aehPvxxZlpTSmotFyFN4oMQ05xlDvm3odElx/xdt4wwscoP4J1WxVMTSrzKl+BnxIXOrVxx3b8TxkJUlXHLzriXeGXAVCdo0lkn4w7gcTqBhwdB04t89/1O/w1cDnyilFU="
 CHANNEL_SECRET = "535ba27bc0bcd3edb3b968a34b4c2ed5"
 
 # ข้อมูล Gemini api key
